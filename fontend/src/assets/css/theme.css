@@ -1,0 +1,26 @@
+.container-night{
+    background-color: rgb(50, 49, 49);
+    color: white;
+}
+.box-night {
+    background-color: rgb(37, 37, 37);
+    color: white;
+}
+.button-night{
+    background-color: black;
+    color: white;
+}
+.container-day {
+    background-color: rgb(244, 245, 245);
+    color: black;
+}
+
+.box-day {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.button-day {
+    background-color: #ECF5FF   ;
+    color: blue;
+}

@@ -64,11 +64,12 @@
       "configurable": false
     },
     "imge": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "fansnum": {
       "type": "biginteger",
@@ -92,7 +93,8 @@
     },
     "storednum": {
       "type": "biginteger",
-      "required": true
+      "required": true,
+      "default": "0"
     },
     "fans": {
       "type": "relation",
