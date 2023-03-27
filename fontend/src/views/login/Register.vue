@@ -45,7 +45,7 @@ function registion() {
         email: email.value,
         password: password.value
     }).then((res) => {
-        router.replace('/Index');
+        router.replace('/Index/');
     }).catch((err) => {
         console.log(err);
     })
@@ -53,7 +53,7 @@ function registion() {
 </script>
 
 <style lang="less" scoped>
-@import url('@/assets/css/theme.css');
+
 .container {
     height: 100vh;
     display: flex;

@@ -1,0 +1,7 @@
+.w {
+     width: 1200px;
+ }
+
+.route__link-active{
+    border-bottom: solid rgb(0, 127, 255) 2px;
+}

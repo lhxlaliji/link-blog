@@ -18,7 +18,7 @@
       <h1 style="color: rgb(0, 127, 255); margin: 100px 0 150px 0; font-size: 50px;"><i><b> Link_blog</b></i></h1>
       <label id="usename"><span style="color:rgb(134,144,154)">username:</span><input v-model.lazy="name" type="text"></label>
       <label id="password"><span style="color:rgb(134,144,154)">password:</span><input v-model.lazy="password" type="password"></label>
-      <el-button @click="login()" :class="`button ${isdark ? 'button-night' : 'button-day'}`" style="margin-top: 20px;" size="large" round>Login</el-button>
+      <el-button @click="login()" :class="`button ${isdark?'button-night':'button-day'}`" style="margin-top: 20px;" size="large" round>Login</el-button>
 
 
       <footer>
@@ -38,8 +38,10 @@ import { storeToRefs } from 'pinia'
 import{useRouter} from'vue-router'
 import axios from 'axios'
 import { useIsDarkStore } from '@/stores/isdark'
+import { useConfirmedStore } from '@/stores/confirmed'
 const router=useRouter()//获取路由
 let { isdark } = storeToRefs(useIsDarkStore());//isdark状态，用于调节主题
+let { confirmed } = storeToRefs(useConfirmedStore());//confirmed状态，用于判断是否管理员
 //定义用户名密码变量
 let name = ref('');
 let password = ref('');
@@ -50,7 +52,9 @@ function login() {
     identifier: name.value,
     password: password.value
   }).then(res => {
-    router.replace('/Index');
+
+    router.replace('/Index/Read');
+    confirmed.value = res.data.user.confirmed;
     })
     .catch(err => {
       alert(err.response.data.error.message);
@@ -62,7 +66,7 @@ function login() {
 </script>
 
 <style lang="less" scoped>
-@import url('@/assets/css/theme.css');
+
 
 .container {
   height: 100vh;

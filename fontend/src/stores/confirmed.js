@@ -1,22 +1,25 @@
 
 import { defineStore } from 'pinia'
 
-export const useIsDarkStore = defineStore('isdark', {
+
+
+export const useConfirmedStore = defineStore('confirmed',{
+
   state: () => {
     return {
-      isdark: false
+      confirmed:false
     }
   },
   actions: {
-    changeState() {
-      this.isdark = (this.isdark == true ? false : true)
+    changeState(x) {
+     this.confirmed =x
     }
   },
   persist: {
     enabled: true,
     strategies: [
       {
-        key: 'isdark',
+        key: 'confirmed',
         storage: localStorage
       }
     ]
