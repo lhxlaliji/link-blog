@@ -3,24 +3,26 @@ import { defineStore } from 'pinia'
 
 
 
-export const useConfirmedStore = defineStore('confirmed',{
+export const useUserStore = defineStore('user',{
 
   state: () => {
     return {
-      confirmed:false
+      ismanage: false,
+      id:0,
+
     }
   },
   actions: {
     changeState(x) {
-     this.confirmed =x
+     this.ismanage =x
     }
   },
   persist: {
     enabled: true,
     strategies: [
       {
-        key: 'confirmed',
-        storage: localStorage
+        key: 'user',
+        storage:localStorage
       }
     ]
   }

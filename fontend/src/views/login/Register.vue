@@ -32,7 +32,9 @@ import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
 import { useIsDarkStore } from '@/stores/isdark'
+import { useUserStore } from '@/stores/user'
 let { isdark } = storeToRefs(useIsDarkStore());//isdark状态，用于调节主题
+let { ismanage, id } = storeToRefs(useUserStore());//confirmed状态，用于判断是否管理员
 const router = useRouter()//获取路由
 //定义用户名密码变量
 let name = ref('');
@@ -45,9 +47,11 @@ function registion() {
         email: email.value,
         password: password.value
     }).then((res) => {
-        router.replace('/Index/');
+        router.replace('/Index/Read/all');
+        ismanage.value = res.data.user.ismanager;
+        id.value = res.data.user.id
     }).catch((err) => {
-        console.log(err);
+        alert(err.response.data.error.message);
     })
 }
 </script>

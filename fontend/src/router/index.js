@@ -3,11 +3,12 @@ import Login from '../views/login/Login.vue'
 import Register from '../views/login/Register.vue'
 import ArticlePage from '../views/main/content/ArticlePage.vue'
 import Index from '../views/main/Index.vue'
-import Read from'../views/main/content/Read.vue'
+import Read from'../views/main/content/Read/Read.vue'
 import Manager from '../views/main/content/Manager.vue'
 import Search from '../views/main/content/Search.vue'
 import Write from '../views/main/content/Write.vue'
 import PersonalCenter from '../views/main/content/PersonalCenter.vue'
+import ArticleList from'../views/main/content/Read/ArticleList.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -45,7 +46,14 @@ const router = createRouter({
         },
         {
           path: 'Read',
-          component:Read
+          component: Read,
+          children: [
+            {
+              path: ':tagid',
+              component:ArticleList
+            }
+            
+          ]
         }
       ]
     }

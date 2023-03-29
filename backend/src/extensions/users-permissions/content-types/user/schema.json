@@ -96,25 +96,30 @@
       "required": true,
       "default": "0"
     },
-    "fans": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "admin::user"
-    },
     "articles": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article"
     },
-    "subscripter": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "admin::user"
-    },
     "stored": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article"
+    },
+    "ismanager": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "fans": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::fanss.fanss"
+    },
+    "suscripters": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::suscripters.suscripters"
     }
   }
 }

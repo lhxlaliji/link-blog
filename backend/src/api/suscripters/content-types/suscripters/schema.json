@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "suscripter",
+  "info": {
+    "singularName": "suscripters",
+    "pluralName": "suscripter",
+    "displayName": "suscripters"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "suscropterid": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true,
+      "unique": true
+    }
+  }
+}
