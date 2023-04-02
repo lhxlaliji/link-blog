@@ -71,27 +71,7 @@
         "images"
       ]
     },
-    "fansnum": {
-      "type": "biginteger",
-      "required": true,
-      "default": "0"
-    },
-    "articlesnum": {
-      "required": true,
-      "type": "biginteger",
-      "default": "0"
-    },
     "starednum": {
-      "type": "biginteger",
-      "required": true,
-      "default": "0"
-    },
-    "subscriptnum": {
-      "type": "biginteger",
-      "default": "0",
-      "required": true
-    },
-    "storednum": {
       "type": "biginteger",
       "required": true,
       "default": "0"
@@ -111,15 +91,20 @@
       "default": false,
       "required": true
     },
+    "stars": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    },
     "fans": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::fanss.fanss"
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
     },
-    "suscripters": {
+    "suscripter": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::suscripters.suscripters"
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

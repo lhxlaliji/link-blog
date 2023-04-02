@@ -3,8 +3,8 @@
 
     <main>
       <ArticleBar></ArticleBar>
-      <div class="article">
-        <router-view></router-view>
+      <div :class="`read ${isdark ? 'box__read-night' : 'box__read-day'}`">
+        <router-view :key="route.fullPath"></router-view>
       </div>
     </main>
     <User></User>
@@ -15,6 +15,13 @@
 import { } from 'vue'
 import User from '@/components/User.vue'
 import ArticleBar from '@/components/ArticleBar.vue'
+import { useRoute } from 'vue-router';
+import { storeToRefs } from 'pinia';
+import { useIsDarkStore } from '../../../../stores/isdark';
+
+let { isdark } = storeToRefs(useIsDarkStore());
+
+const route = useRoute();
 </script>
 
 <style lang="less" scoped>
@@ -22,10 +29,7 @@ import ArticleBar from '@/components/ArticleBar.vue'
   display: flex;
   justify-content: space-around;
 
-  .article {
-    height: 100vh;
-    background-color: white;
-    border: solid rgba(222, 222, 222, 0.8) 0.5px;
+  .read {
     border-radius: 10px;
   }
 

@@ -1,26 +1,157 @@
-.container-night{
+.container-night {
     background-color: rgb(50, 49, 49);
     color: white;
 }
-.box-night {
-    background-color: rgb(37, 37, 37);
-    color: white;
-}
-.button-night{
-    background-color: black;
-    color: white;
-}
+
 .container-day {
     background-color: rgb(244, 245, 245);
     color: black;
 }
 
+
+
+
+
+
+.box-night {
+    background-color: rgb(37, 37, 37);
+    border: solid rgb(46, 47, 47);
+    box-shadow: 2px 3px 5px rgb(31, 30, 30);
+    color: white;
+}
+
 .box-day {
     background-color: rgb(255, 255, 255);
+    border: solid rgb(189, 190, 190);
+    box-shadow: 2px 3px 5px rgb(190, 190, 190);
     color: black;
 }
 
+
+
+
+
+
+.box__user-night {
+    background-color: rgb(37, 37, 37);
+    border: solid rgb(46, 47, 47);
+    box-shadow: 2px 3px 5px rgb(31, 30, 30);
+    color: white;
+}
+
+.box__user-day {
+    background-color: rgb(255, 255, 255);
+
+    box-shadow: 2px 3px rgba(204, 203, 203, 0.8);
+    color: black;
+}
+
+
+
+
+
+.box__topbar-night {
+    background-color: rgb(37, 37, 37);
+    color: white;
+    border-bottom: solid rgb(31, 30, 30);
+}
+
+.box__topbar-day {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-bottom: solid rgba(222, 222, 222, 0.8);
+}
+
+
+
+
+
+.button-night {
+    background-color: black;
+    color: white;
+}
+
 .button-day {
-    background-color: #ECF5FF   ;
+    background-color: #ECF5FF;
     color: blue;
+}
+
+
+
+.box__articlebar-night {
+    background-color: rgb(37, 37, 37);
+    color: white;
+    border-bottom: solid rgb(31, 30, 30);
+}
+
+.box__articlebar-day {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: solid rgba(222, 222, 222, 0.8) 0.5px;
+}
+
+
+.box__read-night {
+    background-color: rgb(37, 37, 37);
+    color: white;
+    border-bottom: solid rgb(31, 30, 30);
+}
+
+.box__read-day {
+    color: black;
+    background-color: white;
+    border: solid rgba(222, 222, 222, 0.8) 0.5px;
+}
+
+
+.box__articleitem-night {
+    background-color: rgb(37, 37, 37);
+    color: white;
+    border-bottom: solid rgb(31, 30, 30);
+}
+
+.box__articleitem-night:hover {
+    background-color: rgb(59, 58, 58);
+}
+
+.box__articleitem-night .author {
+    font-size: 14px;
+    color: rgb(129, 137, 167);
+}
+
+.box__articleitem-night .title {
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(166, 178, 201);
+}
+
+.box__articleitem-night .description {
+    font-size: 15px;
+    color: rgb(231, 234, 236);
+}
+
+.box__articleitem-day {
+    color: black;
+    background-color: white;
+    border-bottom: solid rgb(230, 231, 231);
+}
+
+.box__articleitem-day:hover {
+    background-color: rgb(244, 245, 245);
+}
+
+.box__articleitem-day .author {
+    font-size: 14px;
+    color: rgb(78, 89, 124);
+}
+
+.box__articleitem-day .title {
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(29, 33, 41);
+}
+
+.box__articleitem-day .description {
+    font-size: 15px;
+    color: rgb(134, 144, 156);
 }

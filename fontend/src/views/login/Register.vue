@@ -69,8 +69,6 @@ function registion() {
 
         width: 500px;
         height: 600px;
-        border: solid rgb(189, 190, 190);
-        box-shadow: 2px 3px 5px rgb(190, 190, 190);
         border-radius: 10px;
         display: flex;
         position: relative;

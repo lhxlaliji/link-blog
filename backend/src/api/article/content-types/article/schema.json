@@ -4,7 +4,8 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "article"
+    "displayName": "article",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -33,6 +34,20 @@
       "relation": "manyToMany",
       "target": "api::tag.tag",
       "mappedBy": "articles"
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "viewers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

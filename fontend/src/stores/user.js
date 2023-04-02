@@ -8,7 +8,7 @@ export const useUserStore = defineStore('user',{
   state: () => {
     return {
       ismanage: false,
-      id:0,
+      id: 0,
 
     }
   },

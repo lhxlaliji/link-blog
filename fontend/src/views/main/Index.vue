@@ -1,29 +1,31 @@
 <template>
-    <div class="container">
+    <div :class="`container ${isdark ? 'container-night' : 'container-day'}`">
         <TopBar></TopBar>
         <main>
             <router-view></router-view>
         </main>
-
     </div>
 </template>
 
 <script setup>
-import { } from 'vue'
+import {onBeforeMount } from 'vue'
+import axios from 'axios';
+import { storeToRefs } from 'pinia';
+import { useIsDarkStore } from '../../stores/isdark';
+let { isdark } = storeToRefs(useIsDarkStore());
+
 </script>
 
 <style lang="less" scoped>
-.container{
-    background-color: rgb(244, 245, 245);
+.container {
 
-    main{
-    height: 100vh;
 
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
+    main {
+        height: 100vh;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
 }
-}
-
-
 </style>

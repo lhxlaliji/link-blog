@@ -1,5 +1,5 @@
 <template>
-  <nav class="contain">
+  <nav :class="`contain ${isdark ? 'box__topbar-night' : 'box__topbar-day'}`">
     <div class="w inner">
       <div class="logo">Link_blog</div>
       <ul class="link">
@@ -44,12 +44,11 @@ let { isdark } = storeToRefs(useIsDarkStore());//isdark状态，用于调节主�
 
 <style lang="less" scoped>
 .contain {
-  background-color: white;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: solid rgba(222, 222, 222, 0.8);
+ 
 
   .inner {
     height: 60px;
@@ -83,7 +82,7 @@ let { isdark } = storeToRefs(useIsDarkStore());//isdark状态，用于调节主�
       display: flex;
       align-items: center;
       border-radius: 20px;
-      padding: 5px;
+      padding: 5px 15px;
       border: solid rgb(168, 166, 166);
 
       input {
