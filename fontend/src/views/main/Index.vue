@@ -2,7 +2,7 @@
     <div :class="`container ${isdark ? 'container-night' : 'container-day'}`">
         <TopBar></TopBar>
         <main>
-            <router-view></router-view>
+            <router-view :key="route.fullPath"></router-view>
         </main>
     </div>
 </template>
@@ -12,6 +12,8 @@ import {onBeforeMount } from 'vue'
 import axios from 'axios';
 import { storeToRefs } from 'pinia';
 import { useIsDarkStore } from '../../stores/isdark';
+import { useRoute } from 'vue-router';
+let route = useRoute();
 let { isdark } = storeToRefs(useIsDarkStore());
 
 </script>
@@ -21,10 +23,11 @@ let { isdark } = storeToRefs(useIsDarkStore());
 
 
     main {
-        height: 100vh;
+        min-height: 100vh;
         margin-top: 20px;
         display: flex;
         justify-content: center;
+        padding-bottom: 50px;
     }
 
 }

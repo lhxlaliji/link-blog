@@ -41,7 +41,7 @@ const router = createRouter({
           component: PersonalCenter//个人中心
         },
         {
-          path: 'Search',
+          path: 'Search/:str',
           component: Search//搜索页
         },
         {
