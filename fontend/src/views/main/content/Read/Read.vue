@@ -7,7 +7,9 @@
         <router-view :key="route.fullPath"></router-view>
       </div>
     </main>
-    <User></User>
+    <div class="asider">
+      <User :userid="id"></User>
+    </div>
   </div>
 </template>
 
@@ -18,9 +20,9 @@ import ArticleBar from '@/components/ArticleBar.vue'
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useIsDarkStore } from '../../../../stores/isdark';
-
+import { useUserStore } from '@/stores/user';
 let { isdark } = storeToRefs(useIsDarkStore());
-
+const { id } = storeToRefs(useUserStore());//获取用户id
 const route = useRoute();
 </script>
 
@@ -37,6 +39,8 @@ const route = useRoute();
     width: 70%;
     font-size: 1.5em;
   }
-
+  .asider{
+    width: 20%;
+  }
 }
 </style>

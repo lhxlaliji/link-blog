@@ -76,15 +76,11 @@
       "required": true,
       "default": "0"
     },
-    "articles": {
+    "storeds": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article"
-    },
-    "stored": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article"
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "inversedBy": "storers"
     },
     "ismanager": {
       "type": "boolean",
@@ -105,6 +101,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "author"
     }
   }
 }

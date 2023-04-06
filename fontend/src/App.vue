@@ -13,6 +13,6 @@ import { useIsDarkStore } from './stores/isdark'
 let {  isdark  } = storeToRefs( useIsDarkStore());//isdark状态，用于调节主题
 </script>
 
-<style  scoped>
+<style scoped>
 
 </style>

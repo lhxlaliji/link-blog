@@ -1,5 +1,5 @@
 <template>
-  <nav :class="`contain ${isdark ? 'box__topbar-night' : 'box__topbar-day'}`"  @keydown.enter="search()">
+  <nav :class="`contain ${isdark ? 'box__topbar-night' : 'box__topbar-day'}`" id="topbar" @keydown.enter="search()">
     <div class="w inner">
       <div class="logo">Link_blog</div>
       <ul class="link">
@@ -101,7 +101,6 @@ function search() {
       border-radius: 20px;
       padding: 5px 15px;
       border: solid rgb(168, 166, 166);
-
       input {
         outline: none;
 
@@ -127,4 +126,5 @@ function search() {
     }
   }
 
-}</style>
+}
+</style>

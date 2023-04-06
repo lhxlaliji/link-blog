@@ -1,6 +1,6 @@
 <template>
   <div :class="`contain ${isdark ? 'box__user-night' : 'box__user-day'}`">
-    <div @click="() => { router.push('/index/PersonalCenter') }" class="imge">
+    <div @click="() => { if (id == userid) { router.push('/index/PersonalCenter') } }" class="imge">
       <svg v-if="!hasImge" class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" data-v-ea893728="">
         <path fill="currentColor"
           d="M512 512a192 192 0 1 0 0-384 192 192 0 0 0 0 384zm0 64a256 256 0 1 1 0-512 256 256 0 0 1 0 512zm320 320v-96a96 96 0 0 0-96-96H288a96 96 0 0 0-96 96v96a32 32 0 1 1-64 0v-96a160 160 0 0 1 160-160h448a160 160 0 0 1 160 160v96a32 32 0 1 1-64 0z">
@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { onBeforeMount, ref } from 'vue'
+import { onBeforeMount, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { useUserStore } from '../stores/user';
@@ -33,20 +33,24 @@ let { isdark } = storeToRefs(useIsDarkStore());
 
 
 const router = useRouter();//路由器
-const {id} = storeToRefs(useUserStore());//获取用户id
+const props = defineProps(['userid']);
+const userid = ref(props.userid);//获取用户id
+const { id } = storeToRefs(useUserStore());
 let name = ref('');
 let manage = ref('');
 let fansNum = ref('');
 let articleNum = ref('');
-let staredNum = ref('');
+let staredNum = ref(0);
 let hasImge = ref('')//定义用户信息
 onBeforeMount(() => {
-  axios.get(`http://localhost:1337/api/users/${id.value}?populate=*`)
+  axios.get(`http://localhost:1337/api/users/${userid.value}?populate=*`)
     .then((res) => {
       // console.log(res.data);
       fansNum.value = res.data.fans.length;
       articleNum.value = res.data.articles.length;
-      staredNum.value = res.data.starednum;
+      res.data.articles.forEach(item => {
+        staredNum.value += Number(item.starednum)
+      });
       name.value = res.data.username;
       hasImge.value = res.data.imge ? res.data.imge.formats.medium.url : false;
       if (res.data.ismanager) {
@@ -68,7 +72,7 @@ onBeforeMount(() => {
 <style lang="less" scoped>
 .contain {
 
-  width: 20%;
+  // width: 20%;
   height: 300px;
   display: flex;
   align-items: center;
@@ -120,4 +124,5 @@ onBeforeMount(() => {
       }
     }
   }
-}</style>
+}
+</style>

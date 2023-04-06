@@ -2,7 +2,7 @@
     <div :class="`container ${isdark ? 'container-night' : 'container-day'}`">
         <TopBar></TopBar>
         <main>
-            <router-view :key="route.fullPath"></router-view>
+            <router-view :key="key"></router-view>
         </main>
     </div>
 </template>
@@ -15,7 +15,7 @@ import { useIsDarkStore } from '../../stores/isdark';
 import { useRoute } from 'vue-router';
 let route = useRoute();
 let { isdark } = storeToRefs(useIsDarkStore());
-
+let key = route.fullPath.slice(0, route.fullPath.indexOf("#"))
 </script>
 
 <style lang="less" scoped>

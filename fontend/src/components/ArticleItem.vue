@@ -1,5 +1,5 @@
 <template>
-    <div  :class="`item ${isdark ? 'box__articleitem-night' : 'box__articleitem-day'}`" @click="skip()">
+    <div :class="`item ${isdark ? 'box__articleitem-night' : 'box__articleitem-day'}`" @click="skip()">
         <div class="author">{{ author }}</div>
         <div class="title">{{ title }}</div>
         <div class="description">{{ description }}</div>
@@ -46,6 +46,8 @@ let { isdark } = storeToRefs(useIsDarkStore());
 //文章信息定义
 const props = defineProps(['articleId']);
 const articleId = props.articleId;//获取文章id
+
+let authorId = ref('')
 let author = ref('');
 let title = ref('');
 let description = ref('');
@@ -53,6 +55,7 @@ let view = ref('');
 let viewers = ref([]);//阅读过的用户数组
 let star = ref('');//文章基础信息
 
+let starednum = ref('');
 
 
 
@@ -69,7 +72,7 @@ onBeforeMount(() => {
             view.value = articleMsg.viewers.data.length;
             viewers.value = articleMsg.viewers.data;
             star.value = articleMsg.starednum;//读取数据
-
+            authorId.value = articleMsg.author.data.id;
         })
         .catch((e) => {
             console.log(e);
@@ -138,7 +141,6 @@ function starIt() {
             .catch((e) => {
                 console.log(e);
             })
-
         axios.put(`http://localhost:1337/api/users/${id.value}`, { stars: { connect: [articleId] } })
             .then((res) => {
 
@@ -183,7 +185,7 @@ function skip() {
                 console.log(e);
             })
     }
-    router.push(`/Index/ArticlePage?articleid=${articleId}`)
+    router.push(`/Index/ArticlePage?articleid=${articleId}&authorId=${authorId.value}`)
 }
 
 
@@ -225,7 +227,7 @@ function skip() {
         }
 
         .data-star__stared {
-            color: green;
+            color: #1E80FF;
         }
 
         .data-star__none {}
