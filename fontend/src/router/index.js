@@ -8,7 +8,7 @@ import Manager from '../views/main/content/Manager.vue'
 import Search from '../views/main/content/Search.vue'
 import Write from '../views/main/content/Write.vue'
 import PersonalCenter from '../views/main/content/PersonalCenter.vue'
-import ArticleList from'../views/main/content/Read/ArticleList.vue'
+import ArticleList from '../views/main/content/Read/ArticleList.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [

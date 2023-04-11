@@ -8,14 +8,15 @@
 </template>
 
 <script setup>
-import {onBeforeMount } from 'vue'
+import {onBeforeMount,ref,computed } from 'vue'
 import axios from 'axios';
 import { storeToRefs } from 'pinia';
 import { useIsDarkStore } from '../../stores/isdark';
 import { useRoute } from 'vue-router';
 let route = useRoute();
 let { isdark } = storeToRefs(useIsDarkStore());
-let key = route.fullPath.slice(0, route.fullPath.indexOf("#"))
+
+let key = computed(()=>route.fullPath.slice(0, route.fullPath.indexOf("#")))
 </script>
 
 <style lang="less" scoped>
