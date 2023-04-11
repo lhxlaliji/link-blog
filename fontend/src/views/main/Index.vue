@@ -23,7 +23,7 @@ let key = route.fullPath.slice(0, route.fullPath.indexOf("#"))
 
 
     main {
-        min-height: 100vh;
+        min-height: 725px;
         margin-top: 20px;
         display: flex;
         justify-content: center;

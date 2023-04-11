@@ -37,7 +37,7 @@
     border: solid rgb(46, 47, 47);
     box-shadow: 2px 3px 5px rgb(31, 30, 30);
     color: white;
-    
+
 }
 
 .box__user-day {
@@ -154,4 +154,21 @@
 .box__articleitem-day .description {
     font-size: 15px;
     color: rgb(134, 144, 156);
+}
+
+
+.box__writePage-day {
+    background-color: white;
+    border-bottom: solid rgb(222, 222, 222);
+    color: #757575;
+}
+
+.box__writePage-night {
+    background-color: rgb(37, 37, 37);
+    border-bottom: solid rgb(31, 30, 30);
+    color: rgb(255, 255, 255);
+}
+
+.box__writePage-night input {
+    background-color: rgb(37, 37, 37);
 }

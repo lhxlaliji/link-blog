@@ -23,11 +23,13 @@
     },
     "starednum": {
       "type": "biginteger",
-      "required": true
+      "required": true,
+      "default": "0"
     },
     "readnum": {
       "type": "biginteger",
-      "required": true
+      "required": true,
+      "default": "0"
     },
     "tags": {
       "type": "relation",

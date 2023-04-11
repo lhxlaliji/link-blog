@@ -204,7 +204,10 @@ function skip() {
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-
+    .description{
+        
+        text-overflow: ellipsis;
+    }
 
 
 
