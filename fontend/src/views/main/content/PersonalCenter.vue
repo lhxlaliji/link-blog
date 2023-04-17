@@ -15,7 +15,7 @@
           </div>
           <div style=" display: flex ; flex-direction: column;">
             <span id="name" style="margin-top: 10px; font-size: 20px;">{{ name }}</span>
-            <span id="role" style="margin-top: 10px;">{{ manage }}</span>
+            <span id="role" style="margin-top: 10px;width: 90px;">{{ manage }}</span>
           </div>
         </div>
         <div class="state">
@@ -76,7 +76,7 @@ let stores = ref([]);
 onBeforeMount(() => {
   axios.get(`http://localhost:1337/api/users/${id.value}?populate=*`)
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       fansNum.value = res.data.fans.length;
       articleNum.value = res.data.articles.length;
       res.data.articles.forEach(item => {

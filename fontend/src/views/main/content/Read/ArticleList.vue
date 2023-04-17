@@ -1,5 +1,5 @@
 <template>
-  <div class="contain">
+  <div class="contain" >
     <ArticleItem v-for="(value) in article" :key="value" :articleId="value"></ArticleItem>
   </div>
 </template>
@@ -28,6 +28,8 @@ onBeforeMount(() => {
             article.value.push(item)
           }
         })//去重
+
+
       }
       else
         article.value = res.data.data.attributes.articles.data.map((value) => {
@@ -39,11 +41,11 @@ onBeforeMount(() => {
     })
 })
 
-
 </script>
 
 <style lang="less" scoped>
 .contain {
   padding-bottom: 20px;
+
 }
 </style>

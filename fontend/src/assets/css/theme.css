@@ -19,6 +19,11 @@
     box-shadow: 2px 3px 5px rgb(31, 30, 30);
     color: white;
 }
+.box-night input{
+    background-color: rgb(37, 37, 37);
+    border: solid white;
+    color: white;
+}
 
 .box-day {
     background-color: rgb(255, 255, 255);
@@ -51,6 +56,11 @@
 
 
 .box__topbar-night {
+    background-color: rgb(37, 37, 37);
+    color: white;
+    border-bottom: solid rgb(31, 30, 30);
+}
+.box__topbar-night input{
     background-color: rgb(37, 37, 37);
     color: white;
     border-bottom: solid rgb(31, 30, 30);
@@ -171,4 +181,30 @@
 
 .box__writePage-night input {
     background-color: rgb(37, 37, 37);
+}
+
+
+.box__manageNav-day {
+    background-color: white;
+    border-right: solid rgb(222, 222, 222);
+    color: black;
+}
+
+.box__manageNav-night {
+    background-color: rgb(37, 37, 37);
+    border-right: solid rgb(31, 30, 30);
+    color: white;
+}
+.box__manageBox-day {
+    background-color: white;
+    color: black;
+}
+
+.box__managebox-night {
+    background-color: rgb(37, 37, 37);
+    color: white;
+}
+.box__managebox-night input{
+    background-color: rgb(37, 37, 37);
+    color: white;
 }

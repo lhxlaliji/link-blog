@@ -32,7 +32,9 @@
       </svg>
       <!-- contrl-end -->
     </div>
-
+    <div class="logout" @click="logout()">
+      登出
+    </div>
   </nav>
 </template>
 
@@ -55,6 +57,10 @@ function search() {
 
 }
 
+
+function logout() {
+  router.replace('/');
+}
 
 </script>
 
@@ -125,6 +131,12 @@ function search() {
       cursor: pointer;
     }
   }
-
+  .logout{
+    background-color:  rgb(30, 128, 225);
+    padding: 7px;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+  }
 }
 </style>

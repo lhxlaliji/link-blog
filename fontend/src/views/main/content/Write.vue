@@ -1,6 +1,6 @@
 <template>
   <div class="writepage">
-    <div :class="`title ${isdark ? 'box__writePage-night':'box__writePage-day'}`" >
+    <div :class="`title ${isdark ? 'box__writePage-night' : 'box__writePage-day'}`">
       <input type="text" class="t" placeholder="输入文章标题..." v-model="title">
       <ul class="tagNow"> 文章标签：<li @click="deleteTag(value)" v-for="(value) in now" :key="value.id">
           {{
@@ -108,7 +108,7 @@ watch(content, (newvalue) => {
 //发布文章
 const router = useRouter();
 const { id } = storeToRefs(useUserStore());//获取用户id
-function publish() {
+let publish = debounce(function () {
   if (now.value.length == 0)
     alert('请选择标签');
   else if (title.value == '')
@@ -118,7 +118,7 @@ function publish() {
   else {
     let arr = [];
     arr = now.value.map(item => item.id);
-    console.log(arr);
+    // console.log(arr);
     description.value = content.value.slice(0, 50);
     axios.post('http://localhost:1337/api/articles', {
       data: {
@@ -139,10 +139,37 @@ function publish() {
       })
   }
 
-}
+})
 
 
 //结束
+
+//节流函数
+function throttle(func, delay=500) {
+  let lastTime = 0;
+  return function () {
+    const context = this;
+    const args = arguments;
+    const now = new Date().getTime();
+    if (now - lastTime > delay) {
+      func.apply(context, args);
+      lastTime = now;
+    }
+  }
+}
+
+//防抖函数
+function debounce(func, delay = 500) {
+  let timer = null;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(content, args);
+    }, delay);
+  }
+}
 
 </script>
 
@@ -246,6 +273,7 @@ function publish() {
       border: none;
       box-sizing: border-box;
       padding: 20px;
+
       &:focus {
         outline: none;
       }

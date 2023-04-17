@@ -1,5 +1,5 @@
 <template>
-    <div :class="`container ${isdark ? 'container-night' : 'container-day'}`">
+    <div  :class="`container ${isdark ? 'container-night' : 'container-day'}`">
         <TopBar></TopBar>
         <main>
             <router-view :key="key"></router-view>
@@ -24,11 +24,11 @@ let key = computed(()=>route.fullPath.slice(0, route.fullPath.indexOf("#")))
 
 
     main {
-        min-height: 725px;
+        min-height: 775px;
         margin-top: 20px;
         display: flex;
         justify-content: center;
-        padding-bottom: 50px;
+
     }
 
 }

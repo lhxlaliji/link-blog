@@ -26,13 +26,16 @@ onBeforeMount(() => {
 
 <style lang="less" scoped>
 .contain {
-    height: 40px;
+    min-height: 40px;
+    flex-wrap: wrap;
+    padding: 5px;
     border-radius: 10px;
     display: flex;
     justify-content: start;
     align-items: center;
 
     .li {
+        flex-wrap: nowrap;
         list-style: none;
         margin: 0 20px;
         font-size: 15px;
